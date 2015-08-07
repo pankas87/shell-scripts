@@ -9,7 +9,7 @@ FOLDER=$1
 
 cd "$FOLDER"
 
-for f in *.$2
+for f in *.*
 do
   filename=$(basename "$f")
   extension="${filename##*.}"
@@ -28,12 +28,12 @@ do
     ssconvert $f $filename".csv"
 
     # Transform to XLSX
-    ssconvert $f $filename".xls"
+    ssconvert $f $filename".xlsx"
   fi
 
   if [ $extension = "csv" ]; then
     # Transform to XLSX
-    ssconvert $f $filename".csv"
+    ssconvert $f $filename".xlsx"
 
     # Transform to XLS
     ssconvert $f $filename".xls"
